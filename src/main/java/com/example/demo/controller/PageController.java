@@ -15,17 +15,19 @@ public class PageController {
     @Autowired
     private BookService service;
 
+    // Load page + table
     @GetMapping("/")
-    public String loadForm(Model model) {
-        model.addAttribute("books", service.fetchBooks()); // for table
-        model.addAttribute("book", new Book());            // for form binding
+    public String loadPage(Model model) {
+        model.addAttribute("book", new Book());               // form binding
+        model.addAttribute("books", service.fetchBooks());    // table data
         return "index";
     }
 
+    // Save data + refresh page
     @PostMapping("/save")
     public String saveBook(Book book) {
-        service.addBook(book);
-        return "redirect:/";
+        service.addBook(book);   // INSERT INTO DB
+        return "redirect:/";     // REFRESH PAGE
     }
 }
 

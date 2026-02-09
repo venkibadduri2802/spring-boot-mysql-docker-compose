@@ -7,7 +7,7 @@
 
 <h1>Book Store - Application</h1>
 
-<form th:action="@{/save}" method="post" th:object="${book}">
+<form th:action="@{/save}" th:object="${book}" method="post">
     Book Name :
     <input type="text" th:field="*{bookName}" /><br/><br/>
 
@@ -22,23 +22,23 @@
 
 <hr/>
 
+<h2>Books List</h2>
+
 <table border="1">
     <tr>
-        <th>Id</th>
+        <th>ID</th>
         <th>Name</th>
+        <th>Author</th>
         <th>Price</th>
-        <th>Author Name</th>
     </tr>
 
     <tr th:each="b : ${books}">
         <td th:text="${b.bookId}"></td>
         <td th:text="${b.bookName}"></td>
-        <td th:text="${b.price}"></td>
         <td th:text="${b.author}"></td>
+        <td th:text="${b.price}"></td>
     </tr>
 </table>
-
-<hr/>
 
 <hr/>
 

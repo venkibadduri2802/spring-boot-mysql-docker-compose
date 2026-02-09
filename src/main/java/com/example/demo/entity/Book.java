@@ -16,7 +16,6 @@ public class Book {
     private String author;
     private Double price;
 
-    // getters and setters
     public Integer getBookId() {
         return bookId;
     }
