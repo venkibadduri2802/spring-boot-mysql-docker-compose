@@ -7,23 +7,24 @@
 
 <h1>Book Store - Application</h1>
 
+<!-- FORM -->
 <form th:action="@{/save}" th:object="${book}" method="post">
+
     Book Name :
-    <input type="text" th:field="*{bookName}" /><br/><br/>
+    <input type="text" th:field="*{bookName}" required /><br/><br/>
 
-    Author Name :
-    <input type="text" th:field="*{author}" /><br/><br/>
+    Author :
+    <input type="text" th:field="*{author}" required /><br/><br/>
 
-    Book Price :
-    <input type="number" th:field="*{price}" /><br/><br/>
+    Price :
+    <input type="number" th:field="*{price}" required /><br/><br/>
 
     <button type="submit">Submit</button>
 </form>
 
 <hr/>
 
-<h2>Books List</h2>
-
+<!-- TABLE -->
 <table border="1">
     <tr>
         <th>ID</th>
@@ -40,12 +41,5 @@
     </tr>
 </table>
 
-<hr/>
-
-<h2>BVR </h2>
-<p>Contact Us : +91 - 1234 56 78 90</p>
-<p>Copy Rights @ BVR Academy - 2026</p>
-
 </body>
 </html>
-
