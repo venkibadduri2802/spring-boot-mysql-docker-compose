@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Book Store - Application</title>
 </head>
@@ -7,18 +7,38 @@
 
 <h1>Book Store - Application</h1>
 
-<form action="/save" method="post">
-    <label>Book Name</label><br/>
-    <input type="text" name="bookName"/><br/><br/>
+<form th:action="@{/save}" method="post" th:object="${book}">
+    Book Name :
+    <input type="text" th:field="*{bookName}" /><br/><br/>
 
-    <label>Author Name</label><br/>
-    <input type="text" name="author"/><br/><br/>
+    Author Name :
+    <input type="text" th:field="*{author}" /><br/><br/>
 
-    <label>Book Price</label><br/>
-    <input type="number" name="price"/><br/><br/>
+    Book Price :
+    <input type="number" th:field="*{price}" /><br/><br/>
 
     <button type="submit">Submit</button>
 </form>
+
+<hr/>
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Author Name</th>
+    </tr>
+
+    <tr th:each="b : ${books}">
+        <td th:text="${b.bookId}"></td>
+        <td th:text="${b.bookName}"></td>
+        <td th:text="${b.price}"></td>
+        <td th:text="${b.author}"></td>
+    </tr>
+</table>
+
+<hr/>
 
 <hr/>
 
