@@ -26,8 +26,7 @@ public class PageController {
     // Save data + refresh page
     @PostMapping("/save")
     public String saveBook(Book book) {
-        service.addBook(book);   // INSERT INTO DB
-        return "redirect:/";     // REFRESH PAGE
+        service.addBook(book);        // INSERT INTO DB
+        return "redirect:/";          // REFRESH PAGE
     }
 }
-
