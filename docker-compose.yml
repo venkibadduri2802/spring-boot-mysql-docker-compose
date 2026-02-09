@@ -10,10 +10,8 @@ services:
       - docker-mysql
     depends_on:
       - mysqldb
-    deploy:
-      restart_policy:
-        condition: on-failure
-        max_attempts: 10
+    restart: on-failure
+
   mysqldb:
     image: mysql:8.0
     container_name: mysqldb-container
@@ -22,9 +20,39 @@ services:
     networks:
       - docker-mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=test
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+
 networks:
   docker-mysql:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
